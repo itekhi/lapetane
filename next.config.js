@@ -2,15 +2,20 @@
 
 
 module.exports = {
-  redirects() {
-    return [
-      {
-        source: '/',
-        destination: '/great-deal',
-        permanent: true,
-      },
-    ]
+  output: 'export',
+  images: {
+    unoptimized: true
   },
+
+  // redirects() {
+  //   return [
+  //     {
+  //       source: '/',
+  //       destination: '/great-deal',
+  //       permanent: true,
+  //     },
+  //   ]
+  // },
 
   webpack(config) {
     const fileLoaderRule = config.module.rules.find((rule) =>

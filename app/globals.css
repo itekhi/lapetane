@@ -1,0 +1,94 @@
+@tailwind base;
+
+@layer base {
+
+  html {
+    @apply bg-dark text-white;
+  }
+
+  @media (orientation: portrait) {
+    html, body, main {
+      @apply w-screen h-screen overflow-hidden
+    }
+  }
+
+  :root {
+    --sidebar-width: 428px;
+  }
+
+  @screen tablet {
+    :root {
+      --header-height: theme('spacing.18')
+    }
+  }
+
+  @screen desktop {
+    :root {
+      --header-height: theme('spacing.24')
+    }
+  }
+
+}
+
+
+@tailwind components;
+
+@layer components {
+
+  .heading {
+    @apply text-3xl desktop:text-6xl leading-[normal] font-bold uppercase;
+  }
+  .subheading {
+    @apply heading;
+    @apply text-2xl desktop:text-4xl;
+  }
+  .paragraph {
+    @apply text-lg desktop:text-3xl leading-[normal];
+  }
+
+  .button {
+    @apply
+      inline-block
+      text-base tablet:text-xl desktop:text-2xl font-bold uppercase leading-none
+      border-3 border-white
+      px-4 tablet:px-5 py-2 tablet:py-2 desktop:py-2.5;
+  }
+
+}
+
+
+@tailwind utilities;
+
+@layer utilities {
+
+  .flex-centered {
+    @apply flex justify-center items-center;
+  }
+  .flex-centered-x {
+    @apply flex justify-center;
+  }
+  .flex-centered-y {
+    @apply flex items-center;
+  }
+
+  .bg-main {
+    @apply bg-black/40 backdrop-blur-xl;
+  }
+  .h-header {
+    @apply h-[var(--header-height)]
+  }
+  .pt-header {
+    @apply pt-[var(--header-height)]
+  }
+  .pl-safe {
+    @apply pl-[env(safe-area-inset-left)]
+  }
+  .px-main {
+    @apply px-6 desktop:px-8;
+  }
+
+  .overflow-unset {
+    overflow: unset;
+  }
+
+}
